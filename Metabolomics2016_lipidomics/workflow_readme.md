@@ -19,6 +19,4 @@ To download a specific file, please click on it and then click on the 'Raw' butt
 -	your MS data in .mzML format for feature detection and quantitation in the ‚Signal processing‘ section of the workflow. Just double click the Input Files node and add your files.
 -	Adduct files and LIPID MAPS database files for the identification using accurate mass. Add the corresponding files in the ‚Structure mapping files‘ section of the workflow.
 -	Your MS data in .mzML format including MS2 information. Set this file in the Input File node in the ‚Identification using spectral matching‘ section.
-An MS2 spectrum database in .mzML format. We provide a zipped version of the MassBank database. The unzipped file has to be situated in the ‚Chemistry‘ subfolder of the OpenMS plugin of your KNIME installation, for example ‚…\KNIME\plugins\de.openms.win32.x86_64_2.0.0.201602221444\payload\share\OpenMS\CHEMISTRY’
-
-To download a specific file, please click on it and then click on the 'Raw' button.
+An MS2 spectrum database in .mzML format. We provide a zipped version of the MassBank database (due to size restrictions this file is not part of the OpenMS installation in KNIME). The unzipped file has to be situated in the ‚Chemistry‘ subfolder of the OpenMS plugin of your KNIME installation, for example in ‚…\KNIME\plugins\de.openms.win32.x86_64_2.0.0.201602221444\payload\share\OpenMS\CHEMISTRY\’
