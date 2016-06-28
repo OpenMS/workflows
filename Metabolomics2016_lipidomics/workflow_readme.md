@@ -14,7 +14,7 @@ If chromatographic information about lipid behaviour is available in sufficient 
 Of course, there rarely exists a one-size-fits-all solution pipeline. This is especially true for the still developing field of metabolomics. Here, oftentimes each study requires its own custom-tailored analysis pipeline. In this light, our workflow could be considered more of a starting point or initial template to build upon for your individualized lipidomics analyses. We hope this demonstration workflow could illustrate some of the capabilities of OpenMS in KNIME, and convince you of its modularity and adaptability.
 
 
-##How to use
+##How to use - Input files
 To download a specific file, please click on it and then click on the 'Raw' button. Required input files for the workflow to completely execute are:
 -	your MS data in .mzML format for feature detection and quantitation in the ‚Signal processing‘ section of the workflow. Just double click the Input Files node and add your files.
 -	adduct files and LIPID MAPS database files for the identification using accurate mass. Add the corresponding files in the ‚Structure mapping files‘ section of the workflow.
@@ -26,3 +26,11 @@ The ‚AMS candidate filtering by retention time’ section for training and app
 -	a normalization model for the physicochemical descriptors used in the prediction. We supply a normalization model based on the whole LIPID MAPS database (LM_norm_model.zip). The respective Model Reader node is located in the ‚Compute physicochemical descriptors‘ meta node. This node accepts zip files.
 -	(normalized) physicochemical descriptors for all LIPID MAPS compounds (LM_SVR_in.csv). The respective CSV Reader node is labeled ‚LM SVR features‘ and located in the ‚Predict LIPID MAPS database RTs‘ meta node.
 -	the LIPID MAPS database. We provide a zipped version (LMSDFDownload18Mar14FinalAll.zip), the unzipped .SDF file is required as input for the SDF Reader node in the ‚Predict LIPID MAPS database RTs‘ meta node.
+
+##Customization
+Due to the size of this workflow, we will point out various parts where customization/adaption of parameters is possible, sensible or required:
+-	First of all would be of course the OpenMS nodes, i.e., the FeatureFinderMetabo, MapAlignerPoseClustering, FeatureLinkerUnlabeledQT, AccurateMassSearch and MetaboliteSpectralMatcher node. For brevity, we have to refer to the KNIME node description available when selecing a node and the OpenMS web documentations therein.
+-	The R Snippet node in the ‚Statistical Analysis‘ section which performs a t-test for two groups. Configuration of R nodes allows to change the internal scripts. The first two lines of this script specify which files belong to which group. This will probably have to be adapted to your study design.
+-	Similarly, the R Snippet node labeled ‚FDR‘ in the same section contains a small script with  a fixed (0.01) false discovery rate you could adapt.
+-	The R Snippet node in the ‚Interactive Visualization‘ section also contains a small script which internally sets Fold change and p-value thresholds.
+-	The R Snippet node in the ‚Identification using accurate mass search‘ section contains a script which matches MS1 features to MS/MS identifications if m/z and retention time agree. Tolerances for retention time and m/z errors are defined in the first two lines of the script.
