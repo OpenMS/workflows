@@ -1,3 +1,4 @@
+##Overview
 This folder contains the lipidomics demonstration workflow as presented during the Metabolomics 2016 conference, as well as required database files, adduct list files, etc...
 
 It shows how OpenMS can be used in KNIME to cover various steps in MS lipidomics analyses. Used OpenMS algorithms include:
@@ -12,5 +13,12 @@ If chromatographic information about lipid behaviour is available in sufficient 
 
 Of course, there rarely exists a one-size-fits-all solution pipeline. This is especially true for the still developing field of metabolomics. Here, oftentimes each study requires its own custom-tailored analysis pipeline. In this light, our workflow could be considered more of a starting point or initial template to build upon for your individualized lipidomics analyses. We hope this demonstration workflow could illustrate some of the capabilities of OpenMS in KNIME, and convince you of its modularity and adaptability.
 
+
+##How to use
+To download a specific file, please click on it and then click on the 'Raw' button. Required input files for the workflow to completely execute are:
+-	your MS data in .mzML format for feature detection and quantitation in the ‚Signal processing‘ section of the workflow. Just double click the Input Files node and add your files.
+-	Adduct files and LIPID MAPS database files for the identification using accurate mass. Add the corresponding files in the ‚Structure mapping files‘ section of the workflow.
+-	Your MS data in .mzML format including MS2 information. Set this file in the Input File node in the ‚Identification using spectral matching‘ section.
+An MS2 spectrum database in .mzML format. We provide a zipped version of the MassBank database. The unzipped file has to be situated in the ‚Chemistry‘ subfolder of the OpenMS plugin of your KNIME installation, for example ‚…\KNIME\plugins\de.openms.win32.x86_64_2.0.0.201602221444\payload\share\OpenMS\CHEMISTRY’
 
 To download a specific file, please click on it and then click on the 'Raw' button.
