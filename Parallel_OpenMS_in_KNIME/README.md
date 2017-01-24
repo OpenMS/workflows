@@ -1,0 +1,1 @@
+This workflow shows both the use of standard ZipLoop nodes for iterative OpenMS tool execution, as well as how to execute OpenMS tools in parallel (e.g., to use all computing power for a large number of files).
